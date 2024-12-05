@@ -19,6 +19,7 @@ for up in updates:
     sorted_up = []
     while len(before)>0:
         # Det ska bara vara ETT tal i listan som INTE har några andra tal framför sig.
+        # Denna har en TOM före-lista. Det borde bara vara en sådan.
         first = [k for k,v in before.items() if len(v)==0]
         assert(len(first)==1)
         sorted_up.append(first[0])

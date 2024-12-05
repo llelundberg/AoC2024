@@ -11,13 +11,17 @@ middle = []
 for up in updates:
     valid = True
     for i in range(0,len(up)):
+        # Delar upp uppdateringen i tre delar, talet, de som är före och de som är efter.
         item = up[i]
         bef = up[0:i]
         aft = up[i+1:]
-        #print(bef, item, aft)
+
+        # Kontrollerar alla tal före att det inte finns någon regel som bryter mot detta.
         for b in bef:
             if (item,b) in rules:
                 valid = False
+
+        # Kontrollerar alla tal efter att det inte finns någon regel som bryter mot detta.
         for a in aft:
             if (a,item) in rules:
                 valid = False
