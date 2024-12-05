@@ -8,18 +8,18 @@ for x in text.split("¤")[1].splitlines():
     updates.append([int(xx) for xx in x.split(",") ])
 
 middle=[]
-for up in updates:
+for update in updates:
 
     # För varje tal i lista, kolla vilka andra tal i listan som är FÖRE talet.
     before = {}
-    for item in up:
-        before[item] = [ b for (b,a) in rules if a ==item and b in up]
+    for item in update:
+        before[item] = [b for (b,a) in rules if a == item and b in update]
 
     # Skapa en sorterad kopia av uppdateringen.
     sorted_up = []
     while len(before)>0:
         # Det ska bara vara ETT tal i listan som INTE har några andra tal framför sig.
-        # Denna har en TOM före-lista. Det borde bara vara en sådan.
+        # Denna har en TOM före-lista.
         first = [k for k,v in before.items() if len(v)==0]
         assert(len(first)==1)
         sorted_up.append(first[0])
@@ -30,7 +30,7 @@ for up in updates:
             v.remove(first[0])
 
     # Om uppdateringen skiljer sig från ursprungliga uppdateringen
-    if (up != sorted_up):
+    if update != sorted_up:
         middle.append(sorted_up[int(len(sorted_up)/2)])
 
 print(sum(middle))
