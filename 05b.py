@@ -1,4 +1,4 @@
-text = open("05.txt").read().replace("\n\n","¤")
+text = open("05x.txt").read().replace("\n\n", "¤")
 
 rules = []
 updates = []
