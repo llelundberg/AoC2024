@@ -13,7 +13,7 @@ def evaluate(goal,val,numbers):
     if evaluate(goal,val+numbers[0],numbers[1:]):
         return True
 
-    # Avkommentera för uppgift 2
+    # Kommentera bort för uppgift 1
     if evaluate(goal,int(str(val) + str(numbers[0])),numbers[1:]):
         return True
 
